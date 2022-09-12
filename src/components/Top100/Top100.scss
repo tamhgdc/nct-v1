@@ -1,0 +1,118 @@
+@import 'settings';
+
+.t1-container {
+  position: relative;
+	margin-bottom: 8rem;
+
+  .t1-title {
+    @include main-title-scss;
+		user-select: none;
+  }
+
+  .t1-main {
+    margin: 1.6rem 3.2rem 0;
+
+    .swiper {
+      position: unset;
+
+			.swiper-wrapper {
+				position: unset;
+
+				.swiper-slide {
+					position: unset;
+				}
+			}
+
+      .t1-nav {
+        @include display-flex;
+        @include align-items(center);
+        
+        height: 3rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.8rem;
+        margin-right: 3.2rem;
+      }
+    }
+
+			.pl-container {
+				.pl-img-container {
+					position: relative;
+					width: 100%;
+					border: 0.1rem solid rgba(28, 30, 32, 0.05);
+					border-radius: 0.4rem;
+					overflow: hidden;
+					box-shadow: $box-shadow-effect;
+					-webkit-box-shadow: $box-shadow-effect;
+					-moz-box-shadow: $box-shadow-effect;
+					cursor: pointer;
+
+					&::after {
+						content: '';
+						display: block;
+						padding-bottom: 100%;
+					}
+
+					img {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						transition: all 0.3s ease;
+					}
+
+					.pl-extensions {
+						@include transition-effect(0.3s);
+						position: absolute;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						background-color: rgba(0, 0, 0, 0.5);
+						opacity: 0;
+						.pl-play-btn {
+							@include display-flex;
+							@include align-items(center);
+							@include justify-content(center);
+
+							text-align: center;
+							height: 100%;
+
+							svg {
+								@include transition-effect(0.1s);
+
+								font-size: 3.6rem;
+								color: rgba(255, 255, 255, 0.88);
+								will-change: opacity, transform;
+
+								&:hover {
+									-webkit-transform: scale(1.1);
+									-ms-transform: scale(1.1);
+									transform: scale(1.1);
+								}
+							}
+						}
+
+						.pl-more {
+							position: absolute;
+							top: 0rem;
+							right: 0rem;
+
+							svg {
+								color: #fff;
+								font-size: 2.6rem;
+								margin-top: 0.3rem;
+							}
+						}
+					}
+
+					&:hover img {
+						transform: scale(1.15);
+					}
+
+					&:hover .pl-extensions {
+						opacity: 1;
+					}
+				}
+			}
+		}
+}

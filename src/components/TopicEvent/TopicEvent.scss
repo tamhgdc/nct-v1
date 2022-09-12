@@ -1,0 +1,140 @@
+@import 'settings';
+
+$tp-title-height: 3rem;
+
+.te-container {
+	padding: 0 3.2rem;
+	margin-top: 2.8rem;
+
+	.tp-container {
+		position: relative;
+
+		.tp-header {
+			.tp-title {
+				@include fitContentWidth;
+				height: $tp-title-height;
+				line-height: 3rem;
+				font-size: 2.1rem;
+				font-weight: 700;
+				user-select: none;
+			}
+		}
+
+		.tp-main {
+			margin-top: 1.6rem;
+
+			.swiper {
+				position: unset;
+
+				.tp-nav {
+					@include display-flex;
+					@include align-items(center);
+					
+					height: 3rem;
+					position: absolute;
+					top: 0;
+					right: 0;
+					font-size: 1.8rem;
+				}
+			}
+
+			.pl-container {
+				user-select: none;
+
+				.pl-img-container {
+					@include useBorder;
+					position: relative;
+					width: 100%;
+					border-radius: 0.4rem;
+					overflow: hidden;
+					box-shadow: $box-shadow-effect;
+					-webkit-box-shadow: $box-shadow-effect;
+					-moz-box-shadow: $box-shadow-effect;
+					cursor: pointer;
+
+					&::after {
+						content: '';
+						display: block;
+						padding-bottom: 100%;
+					}
+
+					img {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						transition: all 0.25s ease;
+					}
+
+					.pl-extensions {
+						@include transition-effect(0.25s);
+						position: absolute;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						background-color: rgba(0, 0, 0, 0.5);
+						opacity: 0;
+						.pl-play-btn {
+							@include display-flex;
+							@include align-items(center);
+							@include justify-content(center);
+
+							text-align: center;
+							height: 100%;
+
+							svg {
+								@include transition-effect(0.1s);
+
+								font-size: 3.6rem;
+								color: rgba(255, 255, 255, 0.88);
+								will-change: opacity, transform;
+
+								&:hover {
+									-webkit-transform: scale(1.1);
+									-ms-transform: scale(1.1);
+									transform: scale(1.1);
+								}
+							}
+						}
+
+						.pl-more {
+							position: absolute;
+							top: 0rem;
+							right: 0rem;
+
+							svg {
+								color: #fff;
+								font-size: 2.6rem;
+								margin-top: 0.3rem;
+							}
+						}
+					}
+
+					&:hover img {
+						transform: scale(1.15);
+					}
+
+					&:hover .pl-extensions {
+						opacity: 1;
+					}
+				}
+
+				.pl-title {
+					@include transition-effect(0.1s);
+					@include hoverMainColor;
+					@include fitContentWidth;
+
+					max-width: 100%;
+					margin-top: 0.8rem;
+					font-size: 1.4rem;
+					line-height: 2rem;
+					font-weight: 500;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					cursor: pointer;
+					transition-duration: 0.1s;
+				}
+			}
+		}
+	}
+}

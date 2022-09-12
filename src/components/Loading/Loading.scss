@@ -1,0 +1,45 @@
+@import 'settings';
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.loading-container {
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(center);
+  height: 100vh;
+
+  .loading-spin {
+    @include display-flex;
+
+    width: 5rem;
+    height: 5rem;
+    border: 0.4rem solid transparent;
+    border-top-color: #3cefff;
+    border-bottom-color: #3cefff;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    &:before {
+      content: '';
+      display: block;
+      margin: auto;
+      width: 0.95rem;
+      height: 0.95rem;
+      border: 0.4rem solid #3cefff;
+      border-radius: 50%;
+      animation: pulse 1s alternate ease-in-out infinite;
+    }
+  }
+}

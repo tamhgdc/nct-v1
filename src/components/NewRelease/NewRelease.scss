@@ -1,0 +1,113 @@
+@import 'settings';
+
+$active-img-width: 16rem;
+
+.nr-container {
+	.nr-title {
+    @include main-title-scss;
+		user-select: none;
+	}
+	.nr-main {
+		margin-top: 1.6rem;
+
+		.nr-active-slide {
+			position: relative;
+			padding: 2rem 4rem;
+			margin-bottom: 2.4rem;
+
+			.slick-slide {
+				visibility: hidden;
+
+				&.slick-active {
+					visibility: visible;
+				}
+			}
+
+			.nr-active-container {
+				display: flex !important;
+				.nr-active-img {
+					position: relative;
+					overflow: hidden;
+					border-radius: 0.4rem;
+
+					img {
+						vertical-align: middle;
+						width: 100%;
+						height: auto;
+						border-radius: 0.4rem;
+					}
+				}
+
+				.nr-active-detail {
+					h4 {
+						@include transition-effect(0.1s);
+						@include hoverMainColor;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						vertical-align: text-bottom;
+					}
+
+					.nr-date-release {
+						@include display-flex;
+						@include align-items(center);
+
+						margin-top: 0.5rem;
+						user-select: text;
+						svg {
+							margin-right: 0.4rem;
+						}
+					}
+
+					.line-throught {
+						height: 0.1rem;
+						background-color: rgba(28, 30, 32, 0.05);
+						margin-top: 1.2rem;
+					}
+				}
+			}
+		}
+	}
+
+	.nr-thumb-slider {
+		@include flexCenter;
+    margin-bottom: 4rem;
+
+		& > .slick-active {
+			width: unset;
+		}
+
+		.nr-thumb-img {
+			position: relative;
+			border-radius: 0.4rem;
+			width: unset !important;
+			
+			img {
+				vertical-align: middle;
+				border-radius: 0.4rem;
+			}
+
+			.blur-layer {
+				@include flexCenter;
+				@include transition-effect(0.2s);
+				position: absolute;
+				top: 0;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.3);
+				color: #fafafa;
+				overflow: hidden;
+				border-radius: 0.4rem;
+				font-size: 2rem;
+				visibility: hidden;
+				opacity: 0;
+			}
+		}
+
+		.slick-current {
+			.blur-layer {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+}

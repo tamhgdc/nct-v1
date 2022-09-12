@@ -1,0 +1,133 @@
+@import 'settings';
+
+@mixin playBlur {
+	@include transition-effect(0.1s);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	opacity: 0;
+}
+
+$card-border-radius: 0.4rem 0.4rem 0 0;
+
+.mr-container {
+	.mr-main {
+		display: flex;
+		margin: 1.6rem 3.2rem 0 3.2rem;
+
+		.ma-container {
+			position: relative;
+			border-radius: $card-border-radius;
+
+			.ma-bg-img {
+				width: 100%;
+				height: 50%;
+				border-radius: $card-border-radius;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center center;
+			}
+
+			.ma-title {
+				position: absolute;
+				top: 3.6rem;
+				left: 2.4rem;
+				font-size: 2.8rem;
+				text-transform: uppercase;
+				color: $light-color;
+				text-shadow: 0.2rem 0.2rem 0.2rem #543b54;
+			}
+
+			.ma-t3-img {
+				@include display-flex;
+				margin: -6.5rem 0 1.8rem 2.4rem;
+
+				.ma-thumb-container {
+					position: relative;
+					border-radius: 0.4rem;
+					background-repeat: no-repeat;
+					background-size: cover;
+					cursor: pointer;
+
+					&:not(:first-child) {
+						margin-left: -3.5rem;
+					}
+
+					&:hover {
+						z-index: 4 !important;
+					}
+					.ma-thumb-icon {
+						@include playBlur;
+						font-size: 2.2rem;
+						line-height: 8.0rem;
+						text-align: center;
+						color: $light-color;
+						z-index: 2;
+					}
+
+					.ma-blur {
+						@include playBlur;
+						border-radius: 0.4rem;
+						background-color: rgba(0, 0, 0, 0.5);
+						z-index: 1;
+					}
+
+					&:hover .ma-thumb-icon,
+					&:hover .ma-blur {
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+			}
+
+			.ma-active-title {
+				
+				position: relative;
+				z-index: 1;
+				padding: 0 2.4rem;
+				font-size: 1.6rem;
+				font-weight: 450;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				a {
+					@include transition-effect(0.1s);
+					@include hoverMainColor;
+				}
+			}
+
+			.ma-active-position {
+				position: absolute;
+				top: 19.2rem;
+				right: 3.3rem;
+				font-size: 5.6rem;
+				font-weight: 700;
+				user-select: none;
+			}
+
+			.ma-watch-all {
+				@include transition-effect(0.1s);
+				@include hoverMainColor;
+				width: 12rem;
+				height: 3.2rem;
+				line-height: 3.2rem;
+				font-size: 1.3rem;
+				font-weight: 500;
+				border-width: 0.1rem;
+				border-style: solid;
+				text-align: center;
+				border-radius: 0.4rem;
+				margin-left: 2.4rem;
+				margin-top: 2rem;
+				cursor: pointer;
+
+				&:hover {
+					border-color: $main-text-color !important;
+				}
+			}
+		}
+	}
+}

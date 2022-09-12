@@ -1,0 +1,192 @@
+@import 'settings';
+
+.song-fav-container {
+  .sf-header {
+    position: relative;
+
+    .sf-info {
+      position: relative;
+      height: 17.2rem;
+
+      .sf-total-number {
+        margin-top: 1.4rem;
+      }
+
+      .sf-author {
+        width: 100%;
+        height: 6.4rem;
+        border-radius: 0.4rem;
+        padding-right: 1.4rem;
+
+        .sf-author-main {
+          height: 4rem;
+          .sf-author-img {
+            @include useBorder;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+          }
+
+          .sf-author-desc {
+            @include fitContentWidth;
+            margin-left: 0.8rem;
+            max-width: calc(100% - 10rem);
+            overflow: hidden;
+
+            .sf-author-name {
+              margin-top: 0.6rem;
+              font-size: 1.4rem;
+              font-weight: 700;
+              color: $main-text-color;
+              text-transform: uppercase;
+            }
+          }
+        }
+
+        .sf-extend {
+          @include fitContentWidth;
+          @include flexCenter;
+          height: 100%;
+          .sf-tooltip {
+            @include transition-effect(0.3s);
+            @include hoverMainColor;
+            font-size: 2.3rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .sf-main {
+    .song-list {
+      margin-top: 4.4rem;
+      margin-bottom: 1.6rem;
+    }
+
+    ul {
+      .song-list-common {
+        @include display-flex;
+        height: 4rem;
+        border-radius: 0.4rem;
+        margin-bottom: 0.2rem;
+
+        &.li-list-item-common {
+          margin-top: 2px;
+          margin-bottom: 0;
+        }
+
+        &.song-list-header {
+          height: 3.2rem;
+          margin-bottom: 0.4rem;
+          text-transform: uppercase;
+  
+          .song-list-title-artist {
+            .song-list-title-header {
+              @include justify-content(space-between);
+              width: 50%;
+              padding-left: 1.6rem;
+              font-weight: 700;
+            }
+            .song-list-artist-header {
+              width: 50%;
+              padding: 0 1.2rem;
+              font-weight: 700;
+            }
+          }
+  
+          .song-list-title {
+            &.listen-title {
+              width: 8.2rem;
+              margin-right: 2.2rem;
+              font-weight: 700;
+            }
+            &.duration-title {
+              @include justify-content(center);
+              width: 8rem;
+              font-weight: 700;
+            }
+          }
+        }
+
+        .song-list-title-artist {
+          @include display-flex;
+          width: calc(100% - 18.4rem);
+          .listen-title {
+            width: 8.2rem;
+            margin-right: 2.2rem;
+            font-weight: 600;
+          }
+          .duration-title {
+            @include justify-content(center);
+            width: 8rem;
+            font-weight: 600;
+          }
+        }
+
+        .song-list-title {
+          @include display-flex;
+          @include align-items(center);
+          font-size: 1.3rem;
+          font-weight: 600;
+
+          &.song-list-title-real {
+            @include justify-content(space-between);
+            width: 50%;
+            padding-left: 1.6rem;
+            cursor: pointer;
+
+            .song-list-title-scss {
+              @include threeDotContent;
+              @include transition-effect(0.15s);
+              @include hoverMainColor;
+              margin-top: 0;
+              margin-right: 0.8rem;
+              min-width: 2.8rem;
+              font-size: 1.3rem;
+              line-height: 2rem;
+              vertical-align: text-bottom;
+            }
+
+            .more-btn {
+              @include display-flex;
+              @include fitContentWidth;
+              border-radius: 0.4rem;
+              padding: 0.4rem;
+              font-size: 2.2rem;
+            }
+          }
+
+          &.song-list-artist-real {
+            width: 50%;
+            padding: 0 12px;
+
+            .common-artists-container {
+              margin-top: unset;
+            }
+          }
+
+          &.listen-title-real {
+            width: 8.2rem;
+            margin-right: 2.2rem;
+
+            .view-count {
+              @include fitContentHeight;
+              @include display-flex;
+              @include align-items(center);
+              font-size: 1.3rem;
+              svg {
+                margin-right: 0.3rem;
+              }
+            }
+          }
+
+          &.duration-title-real {
+            @include justify-content(center);
+            width: 8rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import 'settings';
+
+.top-result-container {
+  position: relative;
+  margin-top: 7.2rem;
+
+  .tr-swiper {
+    @include display-flex;
+    @include flexDirection(column-reverse);
+
+    .tr-title {
+      @include display-flex;
+      @include align-items(center);
+      @include justify-content(space-between);
+      width: 100%;
+      padding: 0 3.2rem;
+  
+      &-lead {
+        @include fitContentWidth;
+        height: 3rem;
+        line-height: 3rem;
+        font-size: 2.2rem;
+        font-weight: 600;
+      }
+    }
+
+    
+    .tr-slider {
+      @include display-flex;
+      @include align-items(center);
+      padding: 2.4rem 0rem 2.4rem 3.2rem;
+      background-color: rgba(0, 0, 0, 0.02);
+      margin-top: 1.6rem;
+      width: 100%;
+
+      .tr-description {
+        & > *:not(:first-child) {
+          margin-top: 0.8rem;
+        }
+
+        .tr-decoration {
+          font-size: 3.2rem;
+          font-weight: 700;
+          color: $main-text-color;
+        }
+
+        .tr-main-title {
+          @include threeDotContent;
+          @include transition-effect(0.15s);
+          @include hoverMainColor;
+          font-weight: 600;
+          min-width: 3rem;
+          vertical-align: text-bottom;
+        }
+
+        p.tr-type {
+          text-transform: uppercase;
+          font-size: 1.3rem;
+          line-height: 1.8rem;
+        }
+      }
+    }
+  }
+}

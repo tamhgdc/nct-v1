@@ -1,0 +1,529 @@
+@import 'settings';
+
+.search-container {
+  position: relative;
+
+  .sh-container {
+    @include display-flex;
+    @include align-items(center);
+    @include justify-content(space-between);
+    width: 100%;
+    height: $search-header-height;
+    border-width: 0 0 0.1rem 0;
+    border-style: solid;
+
+    .search-input-container {
+      @include display-flex;
+      @include align-items(center);
+      @include transition-effect(0.1s);
+      position: relative;
+      width: 50%;
+      height: $search-content-height;
+      border-width: 0.1rem;
+      border-style: solid;
+      border-radius: 0.4rem;
+      color: rgba(28, 30, 32, 0.5);
+
+      &.focus {
+        border-color: $main-text-color !important;
+      }
+
+      .search-btn-container {
+        @include display-flex;
+        @include align-items(center);
+        cursor: pointer;
+        padding: 1.6rem 1.1rem;
+
+        svg {
+          font-size: 1.7rem;
+        }
+      }
+
+      .search-input-main {
+        @include display-flex;
+        width: 100%;
+        height: 100%;
+
+        .search-input-section {
+          @include display-flex;
+          @include align-items(center);
+          width: 100%;
+
+          input.search-input-content {
+            width: 100%;
+            line-height: 2rem;
+            font-size: 1.4rem;
+          }
+
+          .search-suggest-container {
+            padding-top: 0.4rem;
+
+            .search-suggest-main {
+              background-color: $light-color;
+              z-index: 9;
+              position: absolute;
+              width: calc(100% - -0.2rem);
+              left: -0.1rem;
+              top: 4.1rem;
+              max-height: 40rem;
+              overflow-y: auto;
+
+              &.empty {
+                padding: 0;
+                height: 0;
+                width: 0;
+              }
+            }
+          }
+        }
+
+        .mask-overlay {
+          position: fixed;
+          background-color: transparent;
+          z-index: 5;
+          width: 100%;
+          height: 100%;
+          display: none;
+          top: 0;
+          left: 0;
+          &.show {
+            display: block;
+          }
+        }
+
+        .search-clear-btn {
+          @include display-flex;
+          @include align-items(center);
+          cursor: pointer;
+          padding: 1.6rem 1.1rem;
+
+          svg {
+            font-size: 1.6rem;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .trending-artists-container {
+      @include display-flex;
+      @include justify-content(flex-end);
+      width: calc(50% - 1.6rem);
+      margin-left: 1.6rem;
+
+      .ta-main {
+        @include display-flex;
+        @include justify-content(flex-end);
+        @include align-items(center);
+        width: 100%;
+
+        .ta-wrapper {
+          position: relative;
+          height: 100%;
+
+          .ta-active-artists {
+            @include transition-effect(0.2s);
+            position: relative;
+            overflow: hidden;
+            height: $search-content-height;
+            border-width: 0.1rem;
+            border-style: solid;
+            border-radius: 2rem;
+            cursor: pointer;
+
+            .ta-swiper-container {
+              height: $search-content-height;
+              .ta-slider-content {
+                @include display-flex;
+                @include justify-content(space-between);
+                @include align-items(center);
+                width: 100%;
+                padding: 1rem 1.2rem;
+                font-size: 1.3rem;
+
+                p.ta-artist-name {
+                  @include threeDotContent;
+                  color: #2daaed;
+                  font-size: 1.3rem;
+                  width: 85%;
+
+                  span.ta-artist-position {
+                    margin-right: 0.8rem;
+                  }
+                }
+              }
+            }
+          }
+
+          .ta-full-artists-main {
+            position: absolute;
+            top: 4rem;
+            padding-top: 0.5rem;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+            opacity: 0;
+            .ta-full-artists-content {
+              position: relative;
+              height: 100%;
+              padding-bottom: 0.4rem;
+              border-radius: 0.4rem;
+              box-shadow: $box-shadow-effect;
+
+              p.ta-lead-title {
+                @include flexCenter;
+                font-size: 1.3rem;
+                font-weight: bold;
+                height: 3.2rem;
+                width: 100%;
+              }
+
+              .ta-full-artists-item {
+                @include display-flex;
+                @include justify-content(space-between);
+                @include align-items(center);
+                @include transition-effect(0.15s);
+                width: 100%;
+                padding: 0.5rem 0.8rem;
+                font-size: 1.3rem;
+                position: relative;
+                height: 100%;
+                cursor: pointer;
+                
+                p.ta-full-artists-name {
+                  @include threeDotContent;
+                  width: 85%;
+                  span.ta-full-artists-position {
+                    margin-right: 0.8rem;
+                  }
+                }
+              }
+            }
+          }
+
+          &:hover .ta-full-artists-main {
+            @include transition-effect(0.3s);
+            opacity: 1;
+            z-index: 10;
+            will-change: opacity;
+          }
+
+          .ta-new-label {
+            &-main {
+              @include flexCenter;
+              width: 100%;
+              height: auto;
+
+              p.ta-new-label-content {
+                color: #ffc100;
+                margin-left: 0.2rem;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .smain-container {
+    margin-bottom: calc(#{$footer-height} * 2);
+
+    .trend-keywords-container {
+
+      .tk-main {
+        margin-top: 1.6rem;
+        .tk-content {
+          position: relative;
+          display: inline-block;
+          font-size: 1.4rem;
+          margin-bottom: 0.8rem;
+          margin-right: 1.8rem;
+          margin-left: 0;
+          padding: 0.6rem 1.2rem 0.5rem;
+          border-top-left-radius: 0.4rem;
+          border-bottom-left-radius: 0.4rem;
+          cursor: pointer;
+
+          &::before {
+            content: '';
+            position: absolute;
+            right: -1rem;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 1rem solid rgba(28, 30, 32, 0.05);
+            border-top: 1.5rem solid transparent;
+            border-bottom: 1.5rem solid transparent;
+            border-top-left-radius: 0.3rem;
+            border-bottom-left-radius: 0.3rem;
+          }
+
+          p.tk-content-title {
+            @include transition-effect(0.1s);
+            @include hoverMainColor;
+            span.tk-position {
+              color: #2daaed;
+              font-weight: 700;
+              margin-right: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+
+    .search-history-container {
+      .sh-main-list {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 1.6rem;
+        .sh-item {
+          @include display-flex;
+          @include align-items(center);
+          @include justify-content(space-between);
+          @include flexDirection(row);
+          padding: 0 1.6rem;
+          height: 4rem;
+          margin-bottom: 0.4rem;
+          border-radius: 0.4rem;
+          cursor: pointer;
+
+          &:hover {
+
+            .sh-clear-item {
+              opacity: 1;
+            }
+          }
+
+          p.sh-search-term {
+            font-size: 1.5rem;
+            font-weight: 600;
+          }
+          .sh-clear-item {
+            @include transition-effect(0.25s);
+            opacity: 0;
+            svg {
+              @include transition-effect(0.15s);
+              font-size: 1.6rem;
+              font-weight: 400;
+
+              &:hover {
+                color: rgba(255, 16, 16, 0.8);
+              }
+            }
+          }
+        }
+      }
+
+      p.sh-clear-all {
+        @include transition-effect(0.1s);
+        @include hoverMainColor;
+        position: absolute;
+        top: 4.8rem;
+        right: 3.2rem;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        cursor: pointer;
+      }
+    }
+
+    .maybe-hit-container {
+      .maybe-hit-title {
+        width: 100%;
+        .maybe-hit-lead {
+          @include fitContentWidth;
+          height: 3rem;
+          line-height: 3rem;
+        }
+      }
+
+      .maybe-hit-wrapper {
+        width: 100%;
+        margin-top: 1.6rem;
+        border-radius: 0.4rem;
+
+        .maybe-hit-main {
+          @include display-flex;
+          @include align-items(center);
+
+          .maybe-hit-thumb {
+            @include display-flex;
+            @include align-items(flex-end);
+            position: relative;
+
+            .speacial-tag {
+              position: absolute;
+              top: -0.5rem;
+              left: 0;
+              padding: 0.4rem 1.1rem;
+              border-top-right-radius: 0.4rem;
+              border-bottom-left-radius: 0.4rem;
+              background-color: #f44336;
+              color: #fff;
+              font-weight: 700;
+              z-index: 1;
+              text-transform: uppercase;
+            }
+
+            .maybe-hit-img-wrapper {
+              .maybe-hit-img-main {
+                cursor: pointer;
+                position: relative;
+                border: $border-light;
+                border-radius: 0.4rem;
+                overflow: hidden;
+                box-shadow: $box-shadow-effect;
+
+                &:hover {
+                  img {
+                    @include transform-effect(scale(1.1));
+                  }
+
+                  .maybe-hit-img-overlay {
+                    opacity: 1;
+                  }
+                }
+
+                img {
+                  @include transition-effect(0.3s, transform);
+                  cursor: pointer;
+                  min-width: 16rem;
+                  min-height: 16rem;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 0.4rem;
+                }
+                .maybe-hit-img-overlay {
+                  @include transition-effect(0.3s);
+                  position: absolute;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  opacity: 0;
+                  .maybe-hit-icon {
+                    @include flexCenter;
+                    text-align: center;
+                    height: 100%;
+                    svg {
+                      @include transition-effect(0.3s);
+                      font-size: 3.8rem;
+                      color: rgba(255, 255, 255, 0.88);
+
+                      &:hover {
+                        @include transform-effect(scale(1.15));
+                      }
+                    }
+                  }
+                  .maybe-hit-more-options {
+                    @include display-flex;
+                    @include fitContentWidth;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    border-radius: 0.4rem;
+                    svg {
+                      font-size: 2.5rem;
+                      margin: 0.4rem;
+                      cursor: pointer;
+                      color: $light-color;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .maybe-hit-description {
+            font-weight: 500;
+
+            .maybe-hit-desc-title {
+              @include threeDotContent;
+              a {
+                @include transition-effect(0.15s);
+                @include hoverMainColor;
+              }
+            }
+
+            .maybe-hit-artist-container {
+              .maybe-hit-artist-main {
+                @include display-flex;
+                @include align-items(center);
+
+                margin-top: 1rem;
+                .maybe-hit-artist-img-container {
+                  display: inline-block;
+                  .maybe-hit-artist-img {
+                    display: inline-block;
+                    width: 2.4rem;
+                    height: 2.4rem;
+                    border: 0.1rem solid rgba(255, 255, 255, 1);
+                    border-radius: 50%;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    margin-right: -0.8rem;
+
+                    img {
+                      width: 100%;
+                      border-radius: 50%;
+                    }
+                  }
+                }
+
+                .maybe-hit-artist-name {
+                  line-height: inherit;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  font-size: 1.3rem;
+                  margin-left: 1.2rem;
+                  a {
+                    span {
+                      @include transition-effect(0.1s);
+                      @include hoverMainColor;
+                    }
+                  }
+                }
+              }
+            }
+
+            .maybe-hit-date-release {
+              @include display-flex;
+              @include align-items(center);
+
+              margin-top: 0.6rem;
+              user-select: text;
+              svg {
+                margin-right: 0.4rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .search-result-container {
+    margin-bottom: calc(#{$footer-height} * 2);
+    .sr-main {
+      .search-not-found {
+        @include flexCenter;
+        @include flexDirection(column);
+
+        img {
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  .ft-container {
+    position: absolute;
+    bottom: 0.8rem;
+    width: 100%;
+  }
+}
+
+.search-result-loading {
+  @include flexCenter;
+  height: calc(100vh - #{$search-header-height} * 2);
+}

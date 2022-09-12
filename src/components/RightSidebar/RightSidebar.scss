@@ -1,0 +1,166 @@
+@import 'settings';
+
+.rb-container {
+  .rb-suggestion {
+    @include display-flex;
+    @include align-items(center);
+    @include justify-content(space-between);
+    @include flexDirection(column);
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.02);
+
+    .no-playing-song {
+      @include display-flex;
+      @include align-items(center);
+      @include flexDirection(column);
+      margin-top: 2.4rem;
+      overflow: hidden;
+
+      .main {
+        width: 24rem;
+        text-align: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          min-width: 24rem;
+          min-height: 24rem;
+          border-radius: 0.4rem;
+          box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.2);
+        }
+
+        p.title {
+          font-size: 1.3rem;
+          line-height: 1.8rem;
+          width: 100%;
+          margin-top: 4rem;
+        }
+
+        .play-now {
+          @include flexCenter;
+          @include fitContentWidth;
+          @include hoverMainColor;
+          @include transition-effect(0.1s);
+          height: 3.2rem;
+          margin: 2.4rem auto 0;
+          font-size: 1.3rem;
+          border-width: 0.1rem;
+          border-style: solid;
+          border-radius: 1.6rem;
+          padding: 1rem 3.7rem;
+          cursor: pointer;
+
+          &:hover {
+            border: 0.1rem solid $main-text-color !important;
+          }
+        }
+      }
+    }
+
+    .suggest-song {
+      width: 100%;
+
+      .suggest-song-main {
+        @include display-flex;
+        border-width: 0.1rem 0 0 0;
+        border-style: solid;
+        padding: 2.5rem 2.4rem 3.1rem;
+
+        .suggest-trending-thumb {
+          img {
+            border-radius: 0.4rem;
+            width: 6.4rem;
+            height: 6.4rem;
+            cursor: pointer;
+          }
+        }
+
+        .suggest-trending-info {
+          @include display-flex;
+          @include justify-content(center);
+          @include flexDirection(column);
+          width: calc(100% - 8rem);
+          margin-left: 1.6rem;
+
+          .suggest-lead-title {
+            margin: 0 0 0.8rem;
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+            width: 100%;
+          }
+
+          a.suggest-title {
+            @include threeDotContent;
+            @include transition-effect(0.1s);
+            @include hoverMainColor;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
+          }
+
+          h5 {
+            @include threeDotContent;
+            vertical-align: text-bottom;
+
+            a {
+              font-size: 1.2rem;
+              line-height: 1.8rem;
+              span.suggest-artist-name {
+                @include transition-effect(0.1s);
+                @include hoverMainColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .time-slider {
+    .rc-slider-handle {
+      &:hover {
+        &::after {
+          opacity: 1;
+          -webkit-transform: scale(1.2) translate(-50%,-50%);
+          -ms-transform: scale(1.2) translate(-50%,-50%);
+          transform: scale(1.2) translate(-50%,-50%);
+        }
+      }
+
+      &.rc-slider-handle-dragging {
+        box-shadow: 0 0 0 0.8rem #96dbfa;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        -webkit-transform-origin: top left;
+        -ms-transform-origin: top left;
+        transform-origin: top left;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border: 0.8rem solid rgba(0, 0, 0, 0.05);
+        border-radius: 50%;
+        padding: 0.5rem;
+        opacity: 0;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    .rc-slider-step {
+      width: 18.4rem;
+      height: 0.2rem;
+      background-color: rgba(28,30,32,0.05);
+      border-radius: 1rem;
+    }
+  }
+}

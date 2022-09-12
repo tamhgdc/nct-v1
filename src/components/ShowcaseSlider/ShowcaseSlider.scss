@@ -1,0 +1,33 @@
+@import 'settings';
+
+.sc-container {
+	width: 100%;
+	padding: 2.4rem;
+
+	.sc-img-container {
+		.sc-img-slider {
+			width: 100%;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			border-radius: 0.8rem;
+		}
+	}
+
+	&:hover .customArr {
+		opacity: 1;
+	}
+
+	.slick-dots {
+		bottom: -3rem;
+		li {
+			@include transition-effect(0.25s);
+			margin: 0 -0.2rem;
+
+
+			&.slick-active {
+				margin-right: 0.5rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+@import 'settings';
+
+
+.overlay {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  .pm-container {
+    position: absolute;
+    z-index: 11;
+  }
+}

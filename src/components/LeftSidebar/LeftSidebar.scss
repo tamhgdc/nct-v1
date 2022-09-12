@@ -1,0 +1,412 @@
+@import 'settings';
+
+$box-border: 0.1rem solid #cfcecf;
+$ball-color: #bfbfbf;
+
+$scale: 5rem;
+
+.left-sidebar {
+  @include transition-effect(0.75s);
+  overflow: hidden auto;
+  overscroll-behavior-y: contain;
+  background-color: #f6f6f6;
+
+  .ls-logo-theme {
+    @include display-flex;
+    @include justify-content(space-between);
+    @include align-items(center);
+    width: inherit;
+    height: 6.4rem;
+    margin: 0 auto;
+    position: relative;
+
+    a.ls-logo {
+      @include display-flex;
+      @include align-items(center);
+      width: 4.8rem;
+      height: 2.4rem;
+      margin-left: 1.6rem;
+
+      img {
+        transform: scale(1.2);
+      }
+    }
+
+    .theme-container {
+      margin-right: 1.6rem;
+
+      .box {
+        @include common(column, center, null, $scale, $scale/2, $light-color);
+        border-radius: $scale/4;
+        cursor: pointer;
+        border: $box-border;
+
+        .ball {
+          @include common(null, null, null, $scale/2, $scale/2, $ball-color);
+          position: absolute;
+          border-radius: 50%;
+          z-index: 1;
+        }
+
+        .scenary {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 0.4rem 0.4rem 0 0.4rem;
+
+          svg {
+            width: $scale/3;
+            font-size: 1.4rem;
+            color: #ffd347;
+            filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.2));
+          }
+        }
+      }
+    }
+  }
+
+  .ls-auth-setting {
+    @include flexCenter;
+    @include justify-content(space-between);
+    width: inherit;
+    height: 5.6rem;
+
+    .ls-auth {
+      @include display-flex;
+      @include align-items(center);
+      max-width: calc(100% - 3.8rem);
+      margin-right: 0.8rem;
+
+      &-main {
+        @include fitContentHeight;
+        @include fitContentWidth;
+        margin-left: 1.6rem;
+        margin-right: 0.6rem;
+        cursor: pointer;
+
+        p {
+          font-size: 1.25rem;
+          font-weight: 500;
+
+          span {
+            @include transition-effect(0.1s);
+            @include hoverMainColor;
+          }
+        }
+      }
+
+      .ls-user-thumb {
+        @include fitContentHeight;
+        @include fitContentWidth;
+        display: inline-block;
+        margin-left: 1.6rem;
+        margin-right: 0.6rem;
+        cursor: pointer;
+        height: 2.3rem;
+        width: 2.3rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+
+      .ls-user-name {
+        @include fitContentWidth;
+        display: inline-block;
+        max-width: 11.5rem;
+
+        a {
+          @include display-flex;
+
+          .ls-user-name-content {
+            @include transition-effect(0.08s);
+            @include hoverMainColor;
+            display: inline-block;
+            width: 100%;
+            max-width: 11.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
+    .ls-setting {
+      @include fitContentWidth;
+      @include transition-effect(0.1s);
+      @include hoverMainColor;
+      margin-right: 1.8rem;
+
+      &-icon {
+        @include display-flex;
+        font-size: 1.5rem;
+        opacity: 0.8;
+        cursor: pointer;
+
+        & svg {
+          @include transition-effect(0.35s);
+        }
+      }
+    }
+  }
+
+  .ls-main {
+    width: inherit;
+    overflow: hidden;
+
+    .ls-navbar {
+      padding: 1.6rem 0;
+      margin-bottom: 5rem;
+
+      ul.nav-menu {
+        cursor: pointer;
+
+        li {
+          margin-bottom: 0.4rem;
+
+          .active {
+            .nav-active-item {
+              background-size: 0.2rem 100% !important;
+            }
+
+            .nav-item {
+              background-color: rgba(28, 30, 32, 0.05);
+            }
+          }
+
+          .nav-item {
+            @include display-flex;
+            @include align-items(center);
+            @include transition-effect(0.1s);
+            position: relative;
+            width: $left-sidebar-width;
+            height: 3.2rem;
+            padding: 0.5rem 0;
+            background-color: transparent;
+
+            .nav-active-item {
+              @include transition-effect(0.16s);
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 3.2rem;
+              width: 0.2rem;
+              border-radius: 0.2rem;
+              background: linear-gradient(to right, #2daaed 0%, #2daaed 100%) no-repeat;
+              background-size: 0.2rem 0;
+              background-position: 50% 50%;
+              overflow: hidden;
+
+              &.isActive {
+                background-size: 0.2rem 100%;
+              }
+            }
+
+            &:hover .nav-active-item {
+              background-size: 0.2rem 100%;
+            }
+
+            .nav-content {
+              @include display-flex;
+              @include align-items(center);
+              @include transition-effect(0.5s);
+              width: 17.8rem;
+              height: 2.4rem;
+              margin-left: 0.8rem;
+              background-size: 0 2rem;
+              background-position: 0% 50%;
+
+              svg {
+                @include transition-effect(0.3s);
+                font-size: 1.6rem;
+                position: absolute;
+                right: 1rem;
+              }
+
+              svg.show-detail {
+                transform: rotate(180deg);
+              }
+
+              i {
+                font-size: 1.8rem;
+                margin: 0 0.6rem;
+              }
+
+              i.search {
+                @include transparentIcon(#00b509, #77e254);
+              }
+
+              i.home {
+                @include transparentIcon(#287be5, #29d7ff);
+              }
+
+              i.discovery {
+                @include transparentIcon(#ff9b2d, #ffe443);
+              }
+
+              i.today-selection {
+                @include transparentIcon(#1a82e5, #df22f2);
+              }
+
+              i.chart {
+                @include transparentIcon(#f44336, #ffb353);
+              }
+
+              i.music-4u {
+                @include transparentIcon(#27b3e2, #13f8e5);
+              }
+
+              p.nav-name {
+                @include userSelect(none);
+                font-size: 1.3rem;
+                margin-left: 0.8rem;
+                margin-top: 0.1rem;
+                text-transform: capitalize;
+                line-height: 2rem;
+              }
+            }
+          }
+
+          .nav-item-detail {
+            @include transition-effect(0.3s);
+            overflow: hidden;
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+
+            a.active {
+              .nav-item-detail-main-hover {
+                background-color: $main-text-color;
+              }
+            }
+
+            &-main {
+              @include display-flex;
+              @include align-items(center);
+              @include userSelect(none);
+              width: $left-sidebar-width;
+              height: 3.2rem;
+              position: relative;
+              text-transform: capitalize;
+
+              &-hover {
+                @include transition-effect(0.3s);
+                top: 1.4rem;
+                left: 4.8rem;
+                width: 0.4rem;
+                height: 0.4rem;
+                position: absolute;
+                border-radius: 100%;
+                background-color: transparent;
+              }
+
+              &:hover .nav-item-detail-main-hover {
+                background-color: $main-text-color;
+              }
+
+              span {
+                font-size: 1.3rem;
+                padding-left: 6.6rem;
+              }
+            }
+
+            &.show-detail {
+              visibility: visible;
+              opacity: 1;
+              height: 12.8rem;
+            }
+          }
+
+          .nav-item-detail.today-selection-detail.show-detail {
+            visibility: visible;
+            opacity: 1;
+            height: 9.6rem;
+          }
+        }
+      }
+
+      .ls-library {
+        margin-top: 1.6rem;
+        margin-bottom: 0.8rem;
+        width: 100%;
+        height: 3.2rem;
+        line-height: 3.2rem;
+        text-indent: 1.6rem;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.pm-container {
+  .sm-container {
+    box-shadow: $box-shadow-effect;
+    margin-left: 1.2rem;
+    border-radius: 0.4rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    font-weight: 400;
+
+    .sm-item {
+      @include commonModal;
+      @include transition-effect(0.1s);
+      @include display-flex;
+      @include align-items(center);
+      padding: 1rem 4.8rem;
+      padding-left: 1.2rem;
+      user-select: none;
+      position: relative;
+
+      .sm-icon {
+        margin-right: 0.4rem;
+        font-size: 1.5rem;
+      }
+
+      span {
+        font-weight: 600;
+      }
+
+      .ar-icon {
+        position: absolute;
+        right: 0;
+        margin-right: 0.8rem;
+      }
+
+      .sm-sub-items {
+        @include transition-effect(0.2s);
+        position: absolute;
+        top: 0;
+        left: 100%;
+        border-radius: 0.4rem;
+        box-shadow: $box-shadow-effect;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.9);
+
+        .sm-sub-item {
+          @include commonModal;
+          display: flex;
+          align-items: center;
+          width: 15rem;
+          height: 3.9rem;
+          padding: 0.7rem 0.8rem;
+        }
+      }
+    }
+
+    .sm-languages:hover .sm-lang-items,
+    .sm-themes:hover .sm-theme-items {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+  }
+}

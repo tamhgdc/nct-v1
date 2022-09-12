@@ -1,0 +1,14 @@
+div.loading-v2 {
+  border: 0.3rem solid rgba(61, 239, 255, 0.2);
+  border-top-color: #3cefff;
+  border-radius: 50%;
+  height: 5.6rem;
+  width: 5.6rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
