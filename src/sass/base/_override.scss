@@ -1,0 +1,57 @@
+// Toastify
+.Toastify__toast-body {
+  font-size: 1.4rem;
+}
+
+// MUI
+.list-songs.MuiGrid-spacing-xs-2 > .MuiGrid-item {
+  padding: 2px 8px;
+}
+
+.MuiGrid-spacing-xs-2 {
+  margin: -8px !important;
+}
+
+.list-playlists.MuiGrid-spacing-xs-2 > .MuiGrid-item,
+.list-videos.MuiGrid-spacing-xs-2 > .MuiGrid-item {
+  padding: 8px;
+}
+
+.MuiGrid-spacing-sm-2 > .MuiGrid-item {
+  padding: 8px;
+}
+
+.MuiGrid-spacing-xs-1 > .MuiGrid-item {
+  padding: 4px;
+}
+
+.MuiTab-textColorPrimary.Mui-selected {
+  color: $main-text-color !important;
+}
+
+.MuiTabs-indicator {
+  background-color: $main-text-color !important;
+}
+
+.MuiAvatarGroup-root {
+  -webkit-flex-direction: row !important;
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
+}
+
+.MuiAvatar-root {
+  border-width: 0.1rem !important;
+}
+
+.flex.relative.flex-col.w-full.mb-2px, .w36px button.MuiIconButton-sizeMedium {
+  .MuiTouchRipple-root {
+    .MuiTouchRipple-childLeaving {
+      background-color: rgba(226, 232, 240, 0.5);
+    }
+  }
+}
+
+// Recharts
+svg.recharts-surface {
+  overflow: visible;
+}

@@ -1,0 +1,10 @@
+@import 'settings';
+
+.notfound-container {
+  @include flexDirection(column);
+  
+  img {
+    width: 20rem;
+    height: 20rem;
+  }
+}

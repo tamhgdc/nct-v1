@@ -1,0 +1,6 @@
+@import 'settings';
+
+.hp-container {
+  @include transition-effect(0.75s);
+  background-color: $main-bg-color;
+}

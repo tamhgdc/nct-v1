@@ -1,0 +1,106 @@
+@layer components {
+  //Component
+  .commonMainOutlet {
+    @apply transition-all duration-700 pb-8px min-h-screen smpc:ml-200px ip5:ml-0 xl:mr-320px lg:mr-0;
+  }
+
+  .collection-cate {
+    @apply w3-row relative h-10 mt-1.5 ml-16px w-full color-0-5 transition-colors hoverMainColor flex items-center text-sm cursor-pointer capitalize;
+  }
+
+  .rank-position {
+    @apply h-64px pt-4px;
+  }
+  
+  .rank-position-number {
+    @apply text-22px font-bold;
+  }
+
+  .rank-title {
+    @apply text-13px mt-9px color-0-5 uppercase;
+  }
+
+  .rank-tag {
+    @apply flexCenter w-full h-auto;
+  }
+
+  .rank-number {
+    @apply text-xs ml-2px font-normal;
+  }
+
+  .common-min-h {
+    @apply min-h-common-min-height;
+  }
+
+  .update-user-field {
+    @apply flex items-center mb-8px;
+  }
+
+  .update-user-label {
+    @apply text-13px color-0-5 sm:w-44 ip5:w-36 font-medium;
+  }
+
+  .update-user-input {
+    @apply w-update-user-input h-full rounded-4px;
+  }
+
+  .main-title {
+    @apply text-xl font-bold color-0-88 hoverMainColor capitalize transition-colors inline-block mt-32px;
+  }
+
+  .main-title-scss {
+    @include main-title-scss;
+  }
+
+  // Font size
+  .fz-10px {
+    @apply sm:text-10px ip6:text-9px ip5:text-8px; 
+  }
+
+  .fz-12px {
+    @apply sm:text-xs ip6:text-11px ip5:text-10px; 
+  }
+
+  .fz-13px {
+    @apply sm:text-13px ip6:text-xs ip5:text-11px; 
+  }
+
+  .fz-14px {
+    @apply sm:text-sm ip6:text-13px ip5:text-xs; 
+  }
+
+  .fz-16px {
+    @apply sm:text-base ip6:text-15px ip5:text-sm; 
+  }
+
+  // Width
+  .width-48 {
+    @apply md:w-48 sm:w-44 ip5:w-40;
+  }
+
+  .width-80px {
+    @apply md:w-80px sm:w-28 ip5:w-24;
+  }
+
+  .width-24px {
+    @apply sm:w-24px ip5:w-18px ip6:w-8;
+  }
+
+  .width-160px {
+    @apply sm:w-160px ip5:w-120px ip6:w-130px;
+  }
+
+  // Height
+  .height-32px {
+    @apply md:h-32px sm:h-12 ip5:h-26px;
+  }
+
+  .height-40px {
+    @apply md:h-16 sm:h-36px ip5:h-32px;
+  }
+
+  // Min-height
+  .min-height-40px {
+    @apply md:min-h-40px sm:min-h-36px ip5:min-h-32px;
+  }
+}

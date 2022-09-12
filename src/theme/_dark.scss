@@ -1,0 +1,130 @@
+@import 'sass/abstracts/mixins';
+
+$main-bg-color-dark: rgba(24, 34, 45, 1);
+$border-dark: rgba(244, 246, 248, 0.05);
+$dark-color: #100f2c;
+$darkmode-text-color: rgba(244, 246, 248, 0.88);
+
+// Left sidebar
+$box-border-dark: 0.1rem solid #303130;
+$ball-color-dark: #404040;
+
+body[data-theme='dark'] {
+  color: $darkmode-text-color;
+  // Special
+  .disabled {
+    color: rgba(244, 246, 248, 0.2) !important;
+  }
+
+  svg {
+    color: rgba(244, 246, 248, 0.5);
+  }
+
+  .left-sidebar {
+    .box {
+      background-color: $dark-color !important;
+      border: $box-border-dark !important;
+
+      .ball {
+        background-color: $ball-color-dark !important;
+      }
+    }
+
+    @mixin dark-color-text($value) {
+      color: rgba(244, 246, 248, $value);
+    }
+  }
+
+  .tk-content::before {
+    border-left-color: rgba(244, 246, 248, 0.05) !important;
+  }
+
+  a.active {
+    .nav-item {
+      background-color: rgba(244, 246, 248, 0.05) !important;
+    }
+  }
+
+  // Color
+  .Toastify__toast-theme--dark,
+  .color-0-88 {
+    color: rgba(244, 246, 248, 0.88);
+  }
+
+  .git-icon svg:hover,
+  .color-0-6 {
+    color: rgba(244, 246, 248, 0.6);
+  }
+
+  .color-0-5 {
+    color: rgba(244, 246, 248, 0.5);
+  }
+
+  .color-0-2 {
+    color: rgba(244, 246, 248, 0.2);
+  }
+
+  .color-0-05 {
+    color: rgba(244, 246, 248, 0.05);
+  }
+
+  // Background color
+  .Toastify__toast-theme--dark,
+  .bg-color-1 {
+    background-color: rgba(24, 34, 45, 1);
+  }
+
+  .bg-color-0-5 {
+    background-color: rgba(244, 246, 248, 0.5);
+  }
+
+  .bg-color-0-2 {
+    background-color: rgba(244, 246, 248, 0.2);
+  }
+
+  .bg-color-0-01 {
+    background-color: rgba(244, 246, 248, 0.01);
+  }
+
+  .bg-color-0-02 {
+    background-color: rgba(244, 246, 248, 0.02);
+  }
+
+  .om-main ul li:hover,
+  .time-slider .rc-slider-step,
+  .bg-color-0-05 {
+    background-color: rgba(244, 246, 248, 0.05);
+  }
+
+  .hover-bg-color-0-05 {
+    @include transition-effect(0.1s);
+    &:hover {
+      background-color: rgba(244, 246, 248, 0.05);
+    }
+  }
+
+  .hover-bg-color-0-08 {
+    @include transition-effect(0.1s);
+    &:hover {
+      background-color: rgba(244, 246, 248, 0.08);
+    }
+  }
+
+  li:not(.slick-active) .customDots,
+  .bg-color-0-1 {
+    background-color: rgba(244, 246, 248, 0.1);
+  }
+
+  // Border
+  .border-0-2 {
+    border-color: rgba(244, 246, 248, 0.2);
+  }
+
+  .border-0-1 {
+    border-color: rgba(244, 246, 248, 0.1);
+  }
+
+  .border-0-05 {
+    border-color: rgba(244, 246, 248, 0.05);
+  }
+}

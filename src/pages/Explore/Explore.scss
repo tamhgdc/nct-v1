@@ -1,0 +1,40 @@
+@import 'settings';
+
+.explore-container {
+
+  .explore-wrapper {
+    min-height: calc(100vh - #{$footer-height} - 1rem);
+    
+
+    .explore-content {
+      .explore-main {
+        @include display-flex;
+
+        .explore-description {
+          @include display-flex;
+          @include flexDirection(column);
+          margin-left: 2.4rem;
+          margin-top: 1.3rem;
+
+          .explore-btn {
+            @include flexCenter;
+            @include transition-effect(0.1s);
+            @include useBorder;
+            margin-top: 2.4rem;
+            height: 3.2rem;
+            border-radius: 1.6rem;
+            cursor: pointer;
+
+            &:hover {
+              border-color: $main-text-color !important;
+            }
+
+            &:hover .explore-btn-title {
+              color: $main-text-color !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+// Mixin
+@mixin transition-effect($time, $effect: false) {
+  @if $effect == false {
+    transition: all $time ease;
+    -webkit-transition: all $time ease;
+    -moz-transition: all $time ease;
+  }
+
+  @if $effect {
+    transition: $effect $time ease;
+    -webkit-transition: $effect $time ease;
+    -moz-transition: $effect $time ease;
+    will-change: $effect;
+  }
+}
+
+@mixin complexTransition($value) {
+  transition: $value;
+  -webkit-transition: $value;
+  -moz-transition: $value;
+}
+
+@mixin display-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin align-items($value) {
+  -ms-flex-align: $value;
+  -webkit-align-items: $value;
+  -webkit-box-align: $value;
+  -webkit-align-items: $value;
+  -webkit-box-align: $value;
+  -ms-flex-align: $value;
+  align-items: $value;
+}
+
+@mixin justify-content($value) {
+  -webkit-box-pack: $value;
+  -webkit-justify-content: $value;
+  -ms-flex-pack: $value;
+  justify-content: $value;
+}
+
+@mixin flexCenter {
+  @include display-flex;
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+@mixin hoverMainColor {
+  &:hover {
+    color: $main-text-color !important;
+
+    svg {
+      color: $main-text-color !important;
+    }
+  }
+}
+
+@mixin transform-effect($value) {
+  -webkit-transform: $value;
+  -ms-transform: $value;
+  transform: $value;
+}
+
+@mixin dark-color-text($value) {
+  color: rgba(28, 30, 32, $value);
+}
+
+@mixin main-title-scss {
+  
+  margin-top: 4rem;
+  margin-left: 3.2rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  a {
+    @include transition-effect(0.1s);
+    @include hoverMainColor;
+  }
+}
+
+@mixin hoverSvgColor($value) {
+  svg:hover {
+    color: $value;
+  }
+}
+
+@mixin common($fd, $jc, $ai, $w, $h, $bc) {
+  @include display-flex;
+  @include justify-content($jc);
+  @include align-items($ai);
+  flex-direction: $fd;
+  width: $w;
+  height: $h;
+  background-color: $bc;
+  transition: all 0.75s ease;
+}
+
+@mixin fitContentHeight {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+@mixin fitContentWidth {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+@mixin borderBottom {
+  &:not(:last-child) {
+    border-bottom: $border-light;
+  }
+}
+
+@mixin commonModal {
+  &:first-child {
+    border-top-right-radius: 0.4rem;
+    border-top-left-radius: 0.4rem;
+  }
+
+  &:last-child {
+    border-bottom-right-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+  }
+}
+
+@mixin userSelect($value) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin transparentIcon($col1, $col2) {
+  background: linear-gradient(to top right,$col1,$col2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin flexDirection($value) {
+  -webkit-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin animation($name, $duration, $timing-function, $fill-mode) {
+  -webkit-animation: $name $duration $timing-function $fill-mode;
+  animation: $name $duration $timing-function $fill-mode;
+}
+
+@mixin threeDotContent {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
+}

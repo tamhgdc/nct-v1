@@ -1,0 +1,4 @@
+@mixin useBorder($witdh: 0.1rem, $style: solid) {
+	border-width: $witdh;
+	border-style: $style;
+}
