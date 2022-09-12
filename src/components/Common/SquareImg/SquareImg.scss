@@ -1,0 +1,14 @@
+.square-img-container {
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transition: background-image 0.3s linear;
+  transition: background-image 0.3s linear;
+  will-change: background-image;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+}

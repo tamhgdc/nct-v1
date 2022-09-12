@@ -1,0 +1,15 @@
+@import 'settings';
+
+.common-playlist-container {
+  .common-playlist-title {
+    @include threeDotContent;
+    @include fitContentWidth;
+    @include hoverMainColor;
+    @include transition-effect(0.15s);
+    max-width: 100%;
+    margin-top: 0.8rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 600;
+  }
+}

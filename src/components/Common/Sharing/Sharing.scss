@@ -1,0 +1,46 @@
+@import 'settings';
+
+.sharing-container {
+  cursor: pointer;
+  .MuiIconButton-root {
+    padding: 1rem;
+  }
+}
+
+.sharing-modal-container {
+  @include display-flex;
+  @include justify-content(space-between);
+  width: 100%;
+  padding: 2.4rem 6rem;
+
+  .sharing-item {
+    @include display-flex;
+    @include align-items(center);
+    height: 4rem;
+    border-radius: 2rem;
+    color: #fafafa;
+    cursor: pointer;
+
+    &.fb {
+      background-image: linear-gradient(75deg, #2f80ed, #00aeef);
+    }
+
+    &.copy-link {
+      background-color: #20bf55;
+      background-image: linear-gradient(315deg, #20bf55 0%, #01baef 74%);
+    }
+
+    svg {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.MuiTooltip-tooltip {
+  font-size: 1.3rem !important;
+  background-color: $main-text-color !important;
+}
+
+.MuiTooltip-arrow {
+  color: $main-text-color !important;
+}

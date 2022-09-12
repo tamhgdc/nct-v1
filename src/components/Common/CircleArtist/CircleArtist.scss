@@ -1,0 +1,26 @@
+@import 'settings';
+
+.circle-artist-container {
+  @include flexCenter;
+  @include flexDirection(column);
+  width: 100%;
+  padding-bottom: 1.4rem;
+
+  img {
+    @include useBorder;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  p {
+    @include fitContentWidth;
+    @include transition-effect(0.1s);
+    @include hoverMainColor;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    max-width: 100%;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,34 @@
+@import 'settings';
+
+.shadow-overlay-container {
+  @include display-flex;
+  @include align-items(center);
+  @include flexDirection(column);
+  width: 100%;
+  height: 100%;
+
+  .shadow1 {
+    border-radius: 0.4rem 0.4rem 0 0;
+    width: 60%;
+  }
+
+  .shadow2 {
+    border-radius: 0.4rem 0.4rem 0 0;
+    width: 80%;
+  }
+
+  .shadow-overlay-image {
+    position: relative;
+    border-radius: 0.4rem;
+    box-shadow: 0 0.8rem 1.6rem rgba(0,0,0,0.2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+}

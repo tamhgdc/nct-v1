@@ -1,0 +1,49 @@
+@import 'settings';
+
+.navbar {
+  padding-top: 1.6rem;
+
+  &-menu {
+    @include flexCenter;
+    height: 4.8rem;
+    border-radius: 0.4rem;
+    border-width: 0 0 0.1rem;
+    border-style: solid;
+    padding: 0 3.2rem;
+
+    .navbar-item {
+      position: relative;
+      width: 12rem;
+      text-align: center;
+      height: 4.8rem;
+      line-height: 4.8rem;
+      font-weight: 600;
+      margin: 0 0.4rem;
+      cursor: pointer;
+
+      &:hover {
+        .navbar-active {
+          background-size: 100% 0.2rem;
+        }
+      }
+
+      .navbar-active {
+        @include transition-effect(0.15s);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 0.2rem;
+        border-radius: 0.1rem;
+        background: linear-gradient(to right,#2f80ed 0%,#00aeef 100%) no-repeat;
+        background-size: 0 0.2rem;
+        background-position: 50% 50%;
+        will-change: background-size;
+
+        &.is-active {
+          background-size: 100% 0.2rem;
+        }
+      }
+    }
+  }
+
+}

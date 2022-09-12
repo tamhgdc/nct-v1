@@ -1,0 +1,70 @@
+@import 'settings';
+
+.artists-trending-container {
+  padding: 3rem 3.2rem;
+
+  .common-header {
+    margin-bottom: unset;
+  }
+
+  .artists-trending-main {
+    @include display-flex;
+    margin-top: 2.4rem;
+
+    .artists-trending-top1 {
+      .top1-img {
+        width: 20rem;
+        height: 20rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 0.4rem;
+        box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .list-artist {
+      width: 75%;
+      padding-left: 3.2rem;
+
+      .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+        padding: unset !important;
+      }
+
+      .MuiGrid-spacing-xs-2 {
+        margin: unset !important;
+      }
+
+      .artist-item {
+        @include display-flex;
+        @include align-items(center);
+        cursor: pointer;
+        height: 4rem;
+        border-radius: 0.4rem;
+
+        .artist-item-position {
+          @include display-flex;
+          @include justify-content(center);
+          min-width: 2.4rem;
+          margin-right: 0.2rem;
+        }
+
+        .new-label {
+          @include flexCenter;
+          width: 100%;
+          height: auto;
+          color: #FFC100;
+          font-size: 1rem;
+          margin-left: 0.2rem;
+          font-weight: 600;
+        }
+
+        .artist-item-name {
+          @include threeDotContent;
+          font-size: 1.4rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

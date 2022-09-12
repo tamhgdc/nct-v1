@@ -1,0 +1,53 @@
+@import 'settings';
+
+.ft-container {
+	border-width: 0.1rem 0;
+	border-style: solid;
+
+	.ft-main {
+		@include display-flex;
+		@include align-items(center);
+		@include justify-content(space-between);
+		height: $footer-height;
+		margin: 0 3.2rem;
+
+		.ft-owner {
+			font-size: 1.3rem;
+			display: inline-block;
+			border-right: 0.2rem solid rgba(28, 30, 32, 0.05);
+			padding-right: 1rem;
+
+			.ft-tel {
+				@include display-flex;
+				@include align-items(center);
+
+				svg {
+					margin-right: 0.8rem;
+				}
+			}
+		}
+
+		.ft-related-link {
+			@include display-flex;
+			@include align-items(center);
+
+			& a:not(:last-child) {
+				margin-right: 0.4rem;
+			}
+
+			svg {
+				font-size: 2.6rem;
+			}
+			@include transition-effect(0.2s);
+			.fb-icon {
+				@include hoverSvgColor(#4267b2);
+			}
+			.insta-icon {
+				@include hoverSvgColor(#ff5038c9);
+			}
+			.git-icon {
+				@include hoverSvgColor(#24292f);
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+@import 'settings';
+
+.common-artists-container {
+  @include transition-effect(0.1s);
+  @include fitContentWidth;
+  @include threeDotContent;
+  max-width: 100%;
+  margin-top: 0.6rem;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+  a.common-artists-name {
+    span {
+      @include transition-effect(0.1s);
+      @include hoverMainColor;
+    }
+  }
+}

@@ -1,0 +1,307 @@
+@import 'settings';
+
+$login-header-hight: 6rem;
+
+.overlay {
+  @include animation(fadeIn, 0.2s, linear, forwards);
+
+  .af-container {
+    .af-main {
+      @include display-flex;
+      @include flexDirection(column);
+      @include animation(scaleAndFadeIn, 0.1s, linear, forwards);
+      position: relative;
+      border-radius: 0.4rem;
+
+      .af-header {
+        @include flexCenter;
+        height: $login-header-hight;
+        border-radius: 0.4rem 0.4rem 0 0;
+        border-bottom-width: 0.1rem;
+        border-style: solid;
+
+        h4 {
+          @include flexCenter;
+          width: 100%;
+          height: 100%;
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+
+        button.close-btn {
+          @include display-flex;
+          background-color: transparent;
+          position: absolute;
+          margin: 1.2rem;
+          right: 0;
+          border: 0;
+
+          svg {
+            font-size: 2.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.af-content {
+  @include flexCenter;
+  @include flexDirection(column);
+  margin-top: 2.4rem;
+
+  .form-container {
+    @include flexCenter;
+    @include flexDirection(column);
+    width: 75%;
+    form {
+      width: 100%;
+      .input-container {
+        width: 100%;
+        height: 4rem;
+        margin-top: 0.8rem;
+
+        .input-main {
+          @include display-flex;
+          @include transition-effect(0.15s);
+          background-color: rgba(0, 0, 0, 0.02);
+          width: 100%;
+          height: 100%;
+          border-radius: 0.4rem;
+          border-width: 0.1rem;
+          border-style: solid;
+
+          &.focus {
+            border: 0.1rem solid $main-text-color;
+          }
+
+          .input-icon {
+            @include flexCenter;
+            font-size: 2.2rem;
+            padding: 0.7rem;
+            border-width: 0 0.1rem 0 0;
+            border-style: solid;
+            box-sizing: content-box;
+          }
+
+          input {
+            outline: unset;
+            font-size: 1.3rem;
+            line-height: 3.8rem;
+            font-weight: 500;
+            width: 100%;
+            border: none;
+            padding-left: 1rem;
+          }
+          .more-info {
+            @include display-flex;
+            @include align-items(center);
+            position: relative;
+            padding: 0 0.8rem;
+
+            &-icon {
+              @include hoverMainColor;
+              font-size: 1.7rem;
+              cursor: pointer;
+            }
+
+            &-description {
+              position: absolute;
+              width: 29rem;
+              display: none;
+              background-color: #2daaed;
+              padding: 0.8rem 1.6rem;
+              border-radius: 0.4rem;
+              z-index: 2;
+              bottom: 100%;
+              right: -0.8rem;
+
+              display: none;
+
+              &::before {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: calc(100% - 3rem);
+                border-top: 0.8rem solid #2daaed;
+                border-left: 0.5rem solid transparent;
+                border-bottom-width: 0;
+                border-right: 0.5rem solid transparent;
+              }
+
+              p {
+                color: $light-color;
+                font-size: 1.2rem;
+              }
+            }
+
+            .more-info-icon:hover + .more-info-description {
+              display: block;
+            }
+          }
+        }
+      }
+
+      p.error {
+        @include display-flex;
+        @include align-items(center);
+        font-size: 1.3rem;
+        color: $warning-color;
+        margin-top: 0.5rem;
+
+        svg {
+          margin-right: 0.5rem;
+        }
+      }
+
+      .term-container {
+        @include display-flex;
+        @include align-items(center);
+        width: 100%;
+        font-size: 1.3rem;
+        margin-top: 1.6rem;
+
+        label.container {
+          @include userSelect(none);
+          display: block;
+          position: relative;
+          padding-left: 2.4rem;
+          cursor: pointer;
+
+          /* Hide the browser's default checkbox */
+          input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+
+            &:checked ~ .checkmark {
+              background-color: #2196f3 !important;
+
+              &::after {
+                display: block;
+              }
+            }
+          }
+
+          /* Create a custom checkbox */
+          .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1.6rem;
+            width: 1.6rem;
+            border-radius: 0.4rem;
+            border-width: 0.1rem;
+            border-style: solid;
+
+            /* Create the checkmark/indicator (hidden when not checked) */
+            &:after {
+              @include transform-effect(rotate(45deg));
+              content: '';
+              position: absolute;
+              display: none;
+              left: 0.4rem;
+              top: 0.1rem;
+              width: 0.5rem;
+              height: 1rem;
+              border: solid white;
+              border-width: 0 0.2rem 0.2rem 0;
+            }
+          }
+        }
+
+        a.link-term {
+          color: $main-text-color;
+          text-transform: uppercase;
+          cursor: pointer;
+          margin-left: 0.3rem;
+        }
+      }
+
+      button.submit-btn {
+        @include transition-effect(0.15s);
+        @include display-flex;
+        @include justify-content(center);
+        margin-top: 2.4rem;
+        text-align: center;
+        width: 100%;
+        padding-top: 1.05rem;
+        padding-bottom: 1.05rem;
+        font-size: 1.4rem;
+        color: $light-color;
+        background-image: linear-gradient(to right, #2f80ed, #00aeef);
+        border: none;
+        outline: unset;
+        border-radius: 0.4rem;
+        font-weight: 500;
+
+        &.disabled {
+          opacity: 0.5;
+          cursor: default;
+        }
+
+        .loading-v2 {
+          width: 2.1rem;
+          height: 2.1rem;
+        }
+      }
+    }
+  }
+
+  .af-plugin {
+    @include flexCenter;
+    width: 100%;
+    padding-top: 1.7rem;
+    padding-bottom: 1.7rem;
+    background-color: rgba(28, 30, 32, 0.02);
+    margin-top: 2.4rem;
+    font-size: 1.4rem;
+
+    .af-nct-login {
+      margin: 0 1.2rem;
+    }
+
+    .af-plugin-img {
+      @include flexCenter;
+      @include transition-effect(0.05s);
+      border: beige;
+      border-radius: 5rem;
+      width: 5rem;
+      height: 4.2rem;
+      font-size: 1.4em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(28, 30, 32, 0.1);
+      }
+
+      &.af-fb {
+        margin: 0 1.2rem;
+        svg {
+          color: $fb-color;
+        }
+      }
+
+      img {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+  }
+
+  .signup-now {
+    @include flexCenter;
+    margin-top: 3.6rem;
+    color: rgba(28, 30, 32, 0.5);
+    line-height: 1.6rem;
+    font-size: 1.4em;
+
+    span {
+      color: #2daaed;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import 'settings';
+
+.topic-item-container {
+  &:hover {
+    img {
+      @include transform-effect(scale(1.1));
+    }
+
+    .blur-layer {
+      opacity: 1;
+    }
+  }
+
+  .topic-item-img {
+    img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.4rem;
+      -webkit-transition: -webkit-transform 300ms linear,src 300ms linear;
+      -webkit-transition: transform 300ms linear,src 300ms linear;
+      transition: transform 300ms linear,src 300ms linear;
+      will-change: transform,src;
+    }
+  }
+}

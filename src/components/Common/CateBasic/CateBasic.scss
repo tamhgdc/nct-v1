@@ -1,0 +1,17 @@
+@import 'settings';
+
+.cate-basic-container {
+  .cate-basic-item {
+    @include transition-effect(0.1s);
+    @include hoverMainColor;
+    cursor: pointer;
+    font-size: 1.3rem;
+    margin-right: 1.5rem;
+    text-overflow: ellipsis;
+    text-align: center;
+
+    &.activeCate {
+      color: $main-text-color !important;
+    }
+  }
+}

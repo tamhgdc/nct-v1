@@ -1,0 +1,44 @@
+@import 'settings';
+
+.pagi-common-container {
+  @include flexCenter;
+
+  ul.ul-pagination {
+    @include display-flex;
+    @include align-items(center);
+    @include justify-content(space-around);
+    @include useBorder;
+    border-radius: 2rem;
+    height: 4rem;
+    width: 70%;
+    cursor: pointer;
+
+    li {
+      .pagi-btn {
+        @include flexCenter;
+        @include transition-effect(0.15s);
+        @include userSelect(none);
+        font-size: 1.4rem;
+        outline: none;
+        border-bottom: 0.1rem solid transparent;
+
+        &.selected {
+          border-bottom-color: $main-text-color;
+          color: $main-text-color;
+        }
+
+        &.previous-btn {
+          border-width: 0 0.1rem 0 0;
+          border-style: solid;
+          height: 100%;
+        }
+
+        &.next-btn {
+          border-width: 0 0 0 0.1rem;
+          border-style: solid;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

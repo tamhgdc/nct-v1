@@ -1,0 +1,33 @@
+@import 'settings';
+
+.cusArrow {
+  @include transition-effect(0.1s);
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: inline-block;
+
+  svg {
+    color: unset !important;
+  }
+
+  &:hover {
+    color: $main-text-color;
+  }
+
+  &.prevArr {
+    margin: 0 0.8rem;
+
+    &.disabled {
+      cursor: default;
+      color: $disabled-color;
+    }
+  }
+
+  &.nextArr {
+    &.disabled {
+      cursor: default;
+      color: $disabled-color;
+    }
+  }
+}

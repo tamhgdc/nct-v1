@@ -1,0 +1,85 @@
+@import 'settings';
+
+.common-song-container {
+  position: relative;
+  width: 100%;
+  height: 7.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+
+  .cs-img-container {
+    @include useBorder;
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: .4rem;
+    margin: .8rem;
+  }
+
+  .cs-extend {
+    @include fitContentWidth;
+    position: relative;
+    height: 100%;
+    margin-right: 1.6rem;
+
+    .cs-view-count {
+      position: relative;
+      visibility: visible;
+
+      .cs-head-phone {
+        @include fitContentWidth;
+        font-size: 1.3rem;
+        margin-top: 4.2rem;
+        margin-right: .4rem;
+      }
+
+      &-content {
+        @include fitContentWidth;
+        font-size: 1.3rem;
+        margin-top: 4rem;
+      }
+    }
+
+    .cs-more-options {
+      @include display-flex;
+      @include fitContentWidth;
+      position: absolute;
+      top: 1.8rem;
+      right: 0;
+      visibility: hidden;
+      border-radius: 4px;
+
+      .cs-more-btn {
+        padding: 0.8rem;
+        font-size: 2.4rem;
+
+        .cs-more-icon {
+          @include flexCenter;
+        }
+      }
+    }
+  }
+
+  .cs-content {
+
+    .cs-song-title {
+      @include transition-effect(0.15s);
+      @include fitContentWidth;
+      @include threeDotContent;
+      @include hoverMainColor;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 1.6rem;
+      max-width: 100%;
+      line-height: 1.8rem;
+    }
+  }
+
+  &:hover, &.focus {
+    .cs-view-count {
+      visibility: hidden;
+    }
+    .cs-more-options {
+      visibility: visible;
+    }
+  }
+}
