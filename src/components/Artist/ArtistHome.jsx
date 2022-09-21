@@ -14,46 +14,49 @@ const ArtistHome = ({ defineLang, songNearly = [], artist = {}, song = {}, playl
   const [songsView, setSongView] = useState({})
 
   useEffect(() => {
-    try {
-      const getSongsViewState = async (listSongsKey) => {
-        const songsView = await getSongsView(listSongsKey)
-        setSongView(songsView)
+    if (songs.length !== 0) {
+      try {
+        const getSongsViewState = async (listSongsKey) => {
+          const songsView = await getSongsView(listSongsKey)
+          setSongView(songsView)
+        }
+
+        getSongsViewState(getListSongsKey(songs))
+      } catch (error) {
+        throw new Error(error)
       }
-      getSongsViewState(getListSongsKey(songs))
-    } catch (error) {
-      throw new Error(error)
     }
   }, [songs])
 
-	const swiperProps = {
+  const swiperProps = {
     className: 'flex flex-col-reverse px-32px',
-		slidesPerView: 4,
-		spaceBetween: 8,
+    slidesPerView: 4,
+    spaceBetween: 8,
     speed: 300,
-		breakpoints: {
-    320: {
-      slidesPerView: 2,
-      spaceBetween: 6
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 6,
+      },
+      480: {
+        slidesPerView: 3,
+        spaceBetween: 8,
+      },
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      },
+      1536: {
+        slidesPerView: 6,
+        spaceBetween: 12,
+      },
     },
-    480: {
-      slidesPerView: 3,
-      spaceBetween: 8
-    },
-    640: {
-      slidesPerView: 4,
-      spaceBetween: 10
-    },
-    1536: {
-      slidesPerView: 6,
-      spaceBetween: 12
-    }
-		}
-	}
+  }
 
   return (
     <div className='pt-32px px-32px'>
       <Title title={artist.name ? `${artist.name} - NhacCuaTui Clone` : 'NhacCuaTui Clone'} />
-      <Swiper { ... swiperProps }>
+      <Swiper {...swiperProps}>
         <div className='flex items-center justify-between w-full mb-16px'>
           <div className='w-fit h-12 leading-12 text-22px font-bold color-0-88'>{defineLang('Gần đây', 'Recent')}</div>
           <div className='color-0-6'>
@@ -98,7 +101,7 @@ const ArtistHome = ({ defineLang, songNearly = [], artist = {}, song = {}, playl
       {videos.length === 0 || (
         <div className='mt-16'>
           <div className='mb-24px text-22px font-bold color-0-88'>Video</div>
-          <div className='mt-16px'>
+          <div className='mt-16px lg:mx-12px '>
             <Grid container spacing={{ xs: 1, sm: 2 }}>
               {getSlideVideos(videos, 'big').map((video) => (
                 <Grid key={video.key} item xs={6} sm={6} md={6} lg={6} xl={4}>
@@ -106,7 +109,7 @@ const ArtistHome = ({ defineLang, songNearly = [], artist = {}, song = {}, playl
                 </Grid>
               ))}
             </Grid>
-            <Grid container spacing={{ xs: 1, sm: 2 }}>
+            <Grid container spacing={{ xs: 1, sm: 2 }} className='xs:mt-4'>
               {getSlideVideos(videos, 'small').map((video) => (
                 <Grid key={video.key} item xs={6} sm={6} md={3} lg={3} xl={2}>
                   <CommonVideo {...video} keyId={video.key} />
